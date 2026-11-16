@@ -1,0 +1,121 @@
+title,estate_name,county,property_type,bedrooms,bathrooms,size_sqm,price_kes,agent_name,listing_url,scraped_date
+1 Bed Townhouse in Ruaraka,Ruaraka,Nairobi,Townhouse,1,1,80,22700,Private Landlord,https://www.property24.co.ke/sample-listing-1,2026-10-28
+4 Bed Apartment in Thika Road,Thika Road,Kiambu,Apartment,4,4,178,35200,Pamela Properties,https://www.property24.co.ke/sample-listing-2,2026-10-04
+4 Bed Apartment in Kahawa West,Kahawa West,Nairobi,Apartment,4,3,160,26000,Rentals.co.ke,https://www.property24.co.ke/sample-listing-3,2026-10-19
+3 Bed Bungalow in Ruaka,Ruaka,Kiambu,Bungalow,3,3,151,30000,HassConsult,https://www.property24.co.ke/sample-listing-4,2026-09-29
+1 Bed Studio in Thika Road,Thika Road,Kiambu,Studio,1,1,80,17600,Knight Frank KE,https://www.property24.co.ke/sample-listing-5,2026-10-02
+3 Bed Flat in Ruaraka,Ruaraka,Nairobi,Flat,3,3,136,44100,Pamela Properties,https://www.property24.co.ke/sample-listing-6,2026-10-15
+3 Bed Bungalow in Embakasi,Embakasi,Nairobi,Bungalow,3,3,136,30500,Rentals.co.ke,https://www.property24.co.ke/sample-listing-7,2026-10-11
+3 Bed Townhouse in Ruaka,Ruaka,Kiambu,Townhouse,3,2,141,29300,Pamela Properties,https://www.property24.co.ke/sample-listing-8,2026-10-25
+2 Bed Studio in Ruaraka,Ruaraka,Nairobi,Studio,2,1,116,26400,Private Landlord,https://www.property24.co.ke/sample-listing-9,2026-10-07
+3 Bed Bungalow in Lavington,Lavington,Nairobi,Bungalow,3,3,160,171200,HassConsult,https://www.property24.co.ke/sample-listing-10,2026-10-21
+2 Bed Flat in Syokimau,Syokimau,Machakos,Flat,2,2,104,19700,Pamela Properties,https://www.property24.co.ke/sample-listing-11,2026-09-29
+1 Bed Townhouse in Westlands,Westlands,Nairobi,Townhouse,1,1,95,89900,Pamela Properties,https://www.property24.co.ke/sample-listing-12,2026-11-05
+2 Bed Bungalow in Ruaka,Ruaka,Kiambu,Bungalow,2,1,129,19000,Knight Frank KE,https://www.property24.co.ke/sample-listing-13,2026-10-27
+2 Bed Flat in Ngong Road,Ngong Road,Nairobi,Flat,2,1,104,54500,Private Landlord,https://www.property24.co.ke/sample-listing-14,2026-09-25
+3 Bed Bungalow in Eastleigh,Eastleigh,Nairobi,Bungalow,3,3,157,41700,Private Landlord,https://www.property24.co.ke/sample-listing-15,2026-09-26
+3 Bed Bungalow in Kilimani,Kilimani,Nairobi,Bungalow,3,2,126,89800,Private Landlord,https://www.property24.co.ke/sample-listing-16,2026-10-15
+1 Bed Bungalow in Lavington,Lavington,Nairobi,Bungalow,1,1,97,115800,Pamela Properties,https://www.property24.co.ke/sample-listing-17,2026-10-21
+2 Bed Studio in Lavington,Lavington,Nairobi,Studio,2,1,110,125800,Pamela Properties,https://www.property24.co.ke/sample-listing-18,2026-10-01
+3 Bed Studio in Upperhill,Upperhill,Nairobi,Studio,3,2,131,94500,HassConsult,https://www.property24.co.ke/sample-listing-19,2026-09-19
+2 Bed Townhouse in Ruaraka,Ruaraka,Nairobi,Townhouse,2,1,107,34700,Rentals.co.ke,https://www.property24.co.ke/sample-listing-20,2026-10-17
+3 Bed Bungalow in Eastleigh,Eastleigh,Nairobi,Bungalow,3,3,128,36400,Pamela Properties,https://www.property24.co.ke/sample-listing-21,2026-09-30
+4 Bed Apartment in Syokimau,Syokimau,Machakos,Apartment,4,4,188,31800,Pamela Properties,https://www.property24.co.ke/sample-listing-22,2026-10-04
+4 Bed Bungalow in Upperhill,Upperhill,Nairobi,Bungalow,4,4,188,118000,Rentals.co.ke,https://www.property24.co.ke/sample-listing-23,2026-09-17
+2 Bed Bungalow in Upperhill,Upperhill,Nairobi,Bungalow,2,2,116,70000,Private Landlord,https://www.property24.co.ke/sample-listing-24,2026-10-26
+2 Bed Townhouse in Lavington,Lavington,Nairobi,Townhouse,2,2,128,119900,HassConsult,https://www.property24.co.ke/sample-listing-25,2026-10-28
+3 Bed Townhouse in Kasarani,Kasarani,Nairobi,Townhouse,3,3,135,46600,Pamela Properties,https://www.property24.co.ke/sample-listing-26,2026-09-21
+3 Bed Flat in Kilimani,Kilimani,Nairobi,Flat,3,3,147,89400,Private Landlord,https://www.property24.co.ke/sample-listing-27,2026-09-29
+2 Bed Flat in Syokimau,Syokimau,Machakos,Flat,2,2,103,18500,Private Landlord,https://www.property24.co.ke/sample-listing-28,2026-10-01
+1 Bed Apartment in Westlands,Westlands,Nairobi,Apartment,1,1,100,80300,Rentals.co.ke,https://www.property24.co.ke/sample-listing-29,2026-10-22
+2 Bed Flat in Kileleshwa,Kileleshwa,Nairobi,Flat,2,2,103,79300,HassConsult,https://www.property24.co.ke/sample-listing-30,2026-09-25
+2 Bed Apartment in Syokimau,Syokimau,Machakos,Apartment,2,1,121,20700,Rentals.co.ke,https://www.property24.co.ke/sample-listing-31,2026-10-15
+3 Bed Flat in Ruaraka,Ruaraka,Nairobi,Flat,3,2,133,35100,HassConsult,https://www.property24.co.ke/sample-listing-32,2026-10-19
+2 Bed Bungalow in Lavington,Lavington,Nairobi,Bungalow,2,1,123,113000,Private Landlord,https://www.property24.co.ke/sample-listing-33,2026-11-16
+1 Bed Flat in Kileleshwa,Kileleshwa,Nairobi,Flat,1,1,86,64300,Knight Frank KE,https://www.property24.co.ke/sample-listing-34,2026-09-26
+3 Bed Apartment in Embakasi,Embakasi,Nairobi,Apartment,3,2,129,32000,Knight Frank KE,https://www.property24.co.ke/sample-listing-35,2026-09-30
+1 Bed Townhouse in South B,South B,Nairobi,Townhouse,1,1,77,32700,Private Landlord,https://www.property24.co.ke/sample-listing-36,2026-10-11
+2 Bed Studio in Kilimani,Kilimani,Nairobi,Studio,2,2,111,61600,Pamela Properties,https://www.property24.co.ke/sample-listing-37,2026-10-06
+2 Bed Townhouse in Lavington,Lavington,Nairobi,Townhouse,2,2,118,136300,Pamela Properties,https://www.property24.co.ke/sample-listing-38,2026-11-04
+3 Bed Apartment in Thika Road,Thika Road,Kiambu,Apartment,3,3,141,33800,Rentals.co.ke,https://www.property24.co.ke/sample-listing-39,2026-09-17
+2 Bed Flat in Embakasi,Embakasi,Nairobi,Flat,2,2,114,24400,Rentals.co.ke,https://www.property24.co.ke/sample-listing-40,2026-10-16
+1 Bed Apartment in Kileleshwa,Kileleshwa,Nairobi,Apartment,1,1,71,70600,Knight Frank KE,https://www.property24.co.ke/sample-listing-41,2026-10-27
+2 Bed Flat in Kahawa West,Kahawa West,Nairobi,Flat,2,2,107,19800,Rentals.co.ke,https://www.property24.co.ke/sample-listing-42,2026-11-02
+2 Bed Flat in Ruaka,Ruaka,Kiambu,Flat,2,2,109,25500,Private Landlord,https://www.property24.co.ke/sample-listing-43,2026-10-21
+4 Bed Townhouse in Kileleshwa,Kileleshwa,Nairobi,Townhouse,4,4,165,156000,Pamela Properties,https://www.property24.co.ke/sample-listing-44,2026-10-09
+1 Bed Bungalow in Westlands,Westlands,Nairobi,Bungalow,1,1,86,71100,HassConsult,https://www.property24.co.ke/sample-listing-45,2026-11-01
+2 Bed Apartment in Eastleigh,Eastleigh,Nairobi,Apartment,2,1,116,24400,HassConsult,https://www.property24.co.ke/sample-listing-46,2026-11-03
+2 Bed Flat in Kilimani,Kilimani,Nairobi,Flat,2,1,123,61800,HassConsult,https://www.property24.co.ke/sample-listing-47,2026-11-10
+2 Bed Bungalow in Westlands,Westlands,Nairobi,Bungalow,2,2,100,112800,Pamela Properties,https://www.property24.co.ke/sample-listing-48,2026-09-25
+4 Bed Studio in Lavington,Lavington,Nairobi,Studio,4,4,165,207700,Private Landlord,https://www.property24.co.ke/sample-listing-49,2026-10-20
+2 Bed Flat in Kilimani,Kilimani,Nairobi,Flat,2,1,97,66400,HassConsult,https://www.property24.co.ke/sample-listing-50,2026-10-29
+1 Bed Townhouse in Kasarani,Kasarani,Nairobi,Townhouse,1,1,98,23200,HassConsult,https://www.property24.co.ke/sample-listing-51,2026-11-03
+3 Bed Townhouse in Ruaraka,Ruaraka,Nairobi,Townhouse,3,2,142,42900,HassConsult,https://www.property24.co.ke/sample-listing-52,2026-10-19
+2 Bed Apartment in Ngong Road,Ngong Road,Nairobi,Apartment,2,2,97,42300,Pamela Properties,https://www.property24.co.ke/sample-listing-53,2026-10-04
+4 Bed Bungalow in Eastleigh,Eastleigh,Nairobi,Bungalow,4,4,172,35200,Rentals.co.ke,https://www.property24.co.ke/sample-listing-54,2026-10-05
+3 Bed Bungalow in Ngong Road,Ngong Road,Nairobi,Bungalow,3,3,155,55100,Knight Frank KE,https://www.property24.co.ke/sample-listing-55,2026-11-11
+1 Bed Studio in Kahawa West,Kahawa West,Nairobi,Studio,1,1,82,15600,Knight Frank KE,https://www.property24.co.ke/sample-listing-56,2026-10-13
+1 Bed Townhouse in Kileleshwa,Kileleshwa,Nairobi,Townhouse,1,1,85,60100,HassConsult,https://www.property24.co.ke/sample-listing-57,2026-09-25
+3 Bed Flat in Lavington,Lavington,Nairobi,Flat,3,2,147,191300,Pamela Properties,https://www.property24.co.ke/sample-listing-58,2026-09-19
+2 Bed Apartment in Kilimani,Kilimani,Nairobi,Apartment,2,1,121,60600,Pamela Properties,https://www.property24.co.ke/sample-listing-59,2026-11-09
+2 Bed Townhouse in Thika Road,Thika Road,Kiambu,Townhouse,2,2,119,24900,Pamela Properties,https://www.property24.co.ke/sample-listing-60,2026-09-29
+2 Bed Studio in Thika Road,Thika Road,Kiambu,Studio,2,2,117,29900,HassConsult,https://www.property24.co.ke/sample-listing-61,2026-11-16
+4 Bed Bungalow in Upperhill,Upperhill,Nairobi,Bungalow,4,3,190,116800,Knight Frank KE,https://www.property24.co.ke/sample-listing-62,2026-10-01
+2 Bed Flat in South B,South B,Nairobi,Flat,2,1,118,38400,HassConsult,https://www.property24.co.ke/sample-listing-63,2026-11-09
+2 Bed Studio in Thika Road,Thika Road,Kiambu,Studio,2,2,98,30500,Private Landlord,https://www.property24.co.ke/sample-listing-64,2026-09-27
+2 Bed Apartment in Lavington,Lavington,Nairobi,Apartment,2,1,114,114900,HassConsult,https://www.property24.co.ke/sample-listing-65,2026-10-29
+3 Bed Bungalow in Eastleigh,Eastleigh,Nairobi,Bungalow,3,2,128,34900,Rentals.co.ke,https://www.property24.co.ke/sample-listing-66,2026-09-19
+4 Bed Apartment in Lavington,Lavington,Nairobi,Apartment,4,3,181,186000,Pamela Properties,https://www.property24.co.ke/sample-listing-67,2026-09-22
+1 Bed Townhouse in Westlands,Westlands,Nairobi,Townhouse,1,1,100,68700,Pamela Properties,https://www.property24.co.ke/sample-listing-68,2026-10-08
+3 Bed Apartment in South B,South B,Nairobi,Apartment,3,2,159,60100,Private Landlord,https://www.property24.co.ke/sample-listing-69,2026-09-18
+4 Bed Bungalow in Ruaraka,Ruaraka,Nairobi,Bungalow,4,3,169,47400,Rentals.co.ke,https://www.property24.co.ke/sample-listing-70,2026-10-11
+1 Bed Studio in Upperhill,Upperhill,Nairobi,Studio,1,1,76,53800,Pamela Properties,https://www.property24.co.ke/sample-listing-71,2026-10-30
+2 Bed Townhouse in Thika Road,Thika Road,Kiambu,Townhouse,2,2,97,26600,Rentals.co.ke,https://www.property24.co.ke/sample-listing-72,2026-10-20
+3 Bed Flat in Kasarani,Kasarani,Nairobi,Flat,3,2,125,52400,Knight Frank KE,https://www.property24.co.ke/sample-listing-73,2026-09-18
+1 Bed Flat in Kileleshwa,Kileleshwa,Nairobi,Flat,1,1,93,54200,HassConsult,https://www.property24.co.ke/sample-listing-74,2026-10-05
+3 Bed Flat in Ruaka,Ruaka,Kiambu,Flat,3,3,158,27800,Pamela Properties,https://www.property24.co.ke/sample-listing-75,2026-10-27
+3 Bed Studio in Ruaraka,Ruaraka,Nairobi,Studio,3,2,157,40700,Pamela Properties,https://www.property24.co.ke/sample-listing-76,2026-11-01
+4 Bed Townhouse in Westlands,Westlands,Nairobi,Townhouse,4,3,162,131500,Private Landlord,https://www.property24.co.ke/sample-listing-77,2026-10-14
+1 Bed Flat in Embakasi,Embakasi,Nairobi,Flat,1,1,80,16500,Pamela Properties,https://www.property24.co.ke/sample-listing-78,2026-10-09
+3 Bed Bungalow in Kasarani,Kasarani,Nairobi,Bungalow,3,2,142,51700,HassConsult,https://www.property24.co.ke/sample-listing-79,2026-10-01
+2 Bed Flat in Eastleigh,Eastleigh,Nairobi,Flat,2,1,116,33100,Rentals.co.ke,https://www.property24.co.ke/sample-listing-80,2026-11-08
+3 Bed Townhouse in South B,South B,Nairobi,Townhouse,3,2,152,60300,HassConsult,https://www.property24.co.ke/sample-listing-81,2026-10-31
+3 Bed Flat in Kileleshwa,Kileleshwa,Nairobi,Flat,3,3,154,106000,Pamela Properties,https://www.property24.co.ke/sample-listing-82,2026-10-04
+4 Bed Bungalow in Eastleigh,Eastleigh,Nairobi,Bungalow,4,4,181,35800,Knight Frank KE,https://www.property24.co.ke/sample-listing-83,2026-10-03
+3 Bed Bungalow in Kasarani,Kasarani,Nairobi,Bungalow,3,3,137,49700,Private Landlord,https://www.property24.co.ke/sample-listing-84,2026-09-27
+1 Bed Townhouse in Upperhill,Upperhill,Nairobi,Townhouse,1,1,92,45500,Knight Frank KE,https://www.property24.co.ke/sample-listing-85,2026-10-07
+2 Bed Studio in Thika Road,Thika Road,Kiambu,Studio,2,1,123,26600,Knight Frank KE,https://www.property24.co.ke/sample-listing-86,2026-10-26
+4 Bed Apartment in Kileleshwa,Kileleshwa,Nairobi,Apartment,4,3,156,120500,Rentals.co.ke,https://www.property24.co.ke/sample-listing-87,2026-09-26
+3 Bed Townhouse in Upperhill,Upperhill,Nairobi,Townhouse,3,3,138,84800,Rentals.co.ke,https://www.property24.co.ke/sample-listing-88,2026-11-07
+1 Bed Apartment in Ruaraka,Ruaraka,Nairobi,Apartment,1,1,93,21200,HassConsult,https://www.property24.co.ke/sample-listing-89,2026-10-30
+1 Bed Studio in Upperhill,Upperhill,Nairobi,Studio,1,1,87,48400,Knight Frank KE,https://www.property24.co.ke/sample-listing-90,2026-09-27
+1 Bed Apartment in Kasarani,Kasarani,Nairobi,Apartment,1,1,83,29900,Rentals.co.ke,https://www.property24.co.ke/sample-listing-91,2026-10-13
+2 Bed Studio in Westlands,Westlands,Nairobi,Studio,2,1,107,95800,Knight Frank KE,https://www.property24.co.ke/sample-listing-92,2026-10-13
+4 Bed Bungalow in Lavington,Lavington,Nairobi,Bungalow,4,4,186,215900,HassConsult,https://www.property24.co.ke/sample-listing-93,2026-10-26
+3 Bed Flat in Eastleigh,Eastleigh,Nairobi,Flat,3,3,133,34600,HassConsult,https://www.property24.co.ke/sample-listing-94,2026-09-18
+2 Bed Flat in Embakasi,Embakasi,Nairobi,Flat,2,1,102,27000,Pamela Properties,https://www.property24.co.ke/sample-listing-95,2026-11-05
+1 Bed Townhouse in Ruaka,Ruaka,Kiambu,Townhouse,1,1,71,16500,Knight Frank KE,https://www.property24.co.ke/sample-listing-96,2026-11-15
+2 Bed Studio in Syokimau,Syokimau,Machakos,Studio,2,1,114,22900,HassConsult,https://www.property24.co.ke/sample-listing-97,2026-11-06
+3 Bed Studio in Ngong Road,Ngong Road,Nairobi,Studio,3,3,154,55900,Pamela Properties,https://www.property24.co.ke/sample-listing-98,2026-11-13
+3 Bed Flat in Upperhill,Upperhill,Nairobi,Flat,3,3,138,90200,Knight Frank KE,https://www.property24.co.ke/sample-listing-99,2026-10-30
+3 Bed Studio in Kilimani,Kilimani,Nairobi,Studio,3,3,131,91800,Private Landlord,https://www.property24.co.ke/sample-listing-100,2026-09-24
+3 Bed Flat in Syokimau,Syokimau,Machakos,Flat,3,3,158,29800,Private Landlord,https://www.property24.co.ke/sample-listing-101,2026-10-06
+2 Bed Flat in Kileleshwa,Kileleshwa,Nairobi,Flat,2,2,108,78200,HassConsult,https://www.property24.co.ke/sample-listing-102,2026-10-02
+3 Bed Studio in Kilimani,Kilimani,Nairobi,Studio,3,2,139,80900,Knight Frank KE,https://www.property24.co.ke/sample-listing-103,2026-11-05
+4 Bed Studio in Kileleshwa,Kileleshwa,Nairobi,Studio,4,4,161,148400,HassConsult,https://www.property24.co.ke/sample-listing-104,2026-11-07
+3 Bed Studio in Westlands,Westlands,Nairobi,Studio,3,3,135,120000,Rentals.co.ke,https://www.property24.co.ke/sample-listing-105,2026-10-20
+3 Bed Studio in Kileleshwa,Kileleshwa,Nairobi,Studio,3,3,152,128000,Private Landlord,https://www.property24.co.ke/sample-listing-106,2026-10-25
+2 Bed Apartment in Ruaka,Ruaka,Kiambu,Apartment,2,2,125,24200,HassConsult,https://www.property24.co.ke/sample-listing-107,2026-11-08
+2 Bed Townhouse in Upperhill,Upperhill,Nairobi,Townhouse,2,1,114,87000,Pamela Properties,https://www.property24.co.ke/sample-listing-108,2026-10-11
+2 Bed Studio in Thika Road,Thika Road,Kiambu,Studio,2,2,128,22800,Pamela Properties,https://www.property24.co.ke/sample-listing-109,2026-11-07
+1 Bed Townhouse in Kilimani,Kilimani,Nairobi,Townhouse,1,1,66,42700,Pamela Properties,https://www.property24.co.ke/sample-listing-110,2026-11-02
+2 Bed Apartment in Upperhill,Upperhill,Nairobi,Apartment,2,1,120,69200,Private Landlord,https://www.property24.co.ke/sample-listing-111,2026-10-05
+3 Bed Apartment in Ngong Road,Ngong Road,Nairobi,Apartment,3,2,125,56400,HassConsult,https://www.property24.co.ke/sample-listing-112,2026-11-05
+2 Bed Apartment in Ruaraka,Ruaraka,Nairobi,Apartment,2,1,97,35300,Private Landlord,https://www.property24.co.ke/sample-listing-113,2026-11-05
+4 Bed Bungalow in Kahawa West,Kahawa West,Nairobi,Bungalow,4,4,170,25000,Private Landlord,https://www.property24.co.ke/sample-listing-114,2026-09-30
+3 Bed Apartment in Syokimau,Syokimau,Machakos,Apartment,3,3,153,29800,Pamela Properties,https://www.property24.co.ke/sample-listing-115,2026-10-17
+3 Bed Apartment in Kahawa West,Kahawa West,Nairobi,Apartment,3,2,147,19600,Knight Frank KE,https://www.property24.co.ke/sample-listing-116,2026-09-29
+2 Bed Townhouse in Westlands,Westlands,Nairobi,Townhouse,2,2,97,109700,Knight Frank KE,https://www.property24.co.ke/sample-listing-117,2026-11-02
+2 Bed Apartment in Syokimau,Syokimau,Machakos,Apartment,2,1,121,20400,HassConsult,https://www.property24.co.ke/sample-listing-118,2026-09-28
+1 Bed Bungalow in Lavington,Lavington,Nairobi,Bungalow,1,1,71,87600,Knight Frank KE,https://www.property24.co.ke/sample-listing-119,2026-11-15
+3 Bed Flat in Kileleshwa,Kileleshwa,Nairobi,Flat,3,2,131,127500,Rentals.co.ke,https://www.property24.co.ke/sample-listing-120,2026-10-12
