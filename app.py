@@ -1,36 +1,53 @@
 """
-GenData Project - Nairobi Rental Market Intelligence System
-Author: Denis Urodho |  GenData Databases & SQL Track
-Streamlit Deployment App
+GenData Project - Nairobi Rental Market Intelligence System (v2)
+Author: Denis |  GenData Databases & SQL Track
 Run: streamlit run app.py --server.address 0.0.0.0 --server.port 8501
 """
 import streamlit as st
 import pandas as pd
 import random
 from datetime import date, timedelta
+import plotly.express as px
+import plotly.graph_objects as go
 
 st.set_page_config(page_title="Nairobi Rental Intelligence | GenData", page_icon="🏠", layout="wide")
 
-# ---------- Data (same logic as scraper fallback) ----------
+def centered(text, level=2):
+    st.markdown(f"<h{level} style='text-align: center;'>{text}</h{level}>", unsafe_allow_html=True)
+
+# ---------- Estate master data: rent base + amenities + coordinates ----------
+ESTATES = [
+    # estate, county, base1bed, mult, lat, lon, schools, hospitals, security(1-10), transport(1-10), water(1-10)
+    ("Kilimani","Nairobi",45000,1.0,-1.2906,36.7820,8,5,8,9,8),
+    ("Kileleshwa","Nairobi",55000,1.1,-1.2715,36.7730,7,4,8,8,8),
+    ("Westlands","Nairobi",60000,1.2,-1.2635,36.8080,10,6,9,9,9),
+    ("Upperhill","Nairobi",50000,1.0,-1.2890,36.8200,6,5,9,9,8),
+    ("Lavington","Nairobi",70000,1.3,-1.2730,36.7600,9,4,9,7,9),
+    ("South B","Nairobi",35000,0.8,-1.3200,36.8400,6,3,6,8,7),
+    ("Eastleigh","Nairobi",28000,0.7,-1.2800,36.8500,6,3,5,8,6),
+    ("Ruaka","Kiambu",25000,0.6,-1.1050,36.8800,5,2,6,6,6),
+    ("Kahawa West","Nairobi",22000,0.55,-1.1700,36.9000,4,1,5,5,5),
+    ("Ruaraka","Nairobi",30000,0.7,-1.2400,36.8900,5,2,6,7,6),
+    ("Kasarani","Nairobi",32000,0.75,-1.2200,36.9000,6,2,6,7,6),
+    ("Embakasi","Nairobi",26000,0.65,-1.3200,36.8900,5,2,5,6,5),
+    ("Syokimau","Machakos",24000,0.6,-1.3600,36.9800,4,1,6,5,5),
+    ("Thika Road","Kiambu",28000,0.65,-1.1800,36.9500,5,2,6,6,6),
+    ("Ngong Road","Nairobi",38000,0.85,-1.3200,36.7600,7,3,7,7,7),
+]
+ESTATE_DF = pd.DataFrame(ESTATES, columns=["estate_name","county","base","mult","lat","lon","schools","hospitals","security","transport","water"])
+ESTATE_DF["livability"] = (ESTATE_DF["schools"]*0.8 + ESTATE_DF["hospitals"]*1.2 + ESTATE_DF["security"]*1.5 + ESTATE_DF["transport"]*1.2 + ESTATE_DF["water"]*1.0).round(1)
+ESTATE_DF["insecurity_level"] = ESTATE_DF["security"].apply(lambda x: "Low" if x>=8 else "Medium" if x>=6 else "High")
+
 @st.cache_data
 def load_data():
     random.seed(42)
-    estates = [
-        ("Kilimani","Nairobi",45000,1.0),("Kileleshwa","Nairobi",55000,1.1),
-        ("Westlands","Nairobi",60000,1.2),("Upperhill","Nairobi",50000,1.0),
-        ("Lavington","Nairobi",70000,1.3),("South B","Nairobi",35000,0.8),
-        ("Eastleigh","Nairobi",28000,0.7),("Ruaka","Kiambu",25000,0.6),
-        ("Kahawa West","Nairobi",22000,0.55),("Ruaraka","Nairobi",30000,0.7),
-        ("Kasarani","Nairobi",32000,0.75),("Embakasi","Nairobi",26000,0.65),
-        ("Syokimau","Machakos",24000,0.6),("Thika Road","Kiambu",28000,0.65),
-        ("Ngong Road","Nairobi",38000,0.85),
-    ]
     types = ["Apartment","Flat","Townhouse","Bungalow","Studio"]
     agents = ["Pamela Properties","HassConsult","Knight Frank KE","Private Landlord","Rentals.co.ke"]
     rows = []
     today = date.today()
     for i in range(120):
-        estate, county, base, mult = random.choice(estates)
+        e = random.choice(ESTATES)
+        estate, county, base, mult = e[0], e[1], e[2], e[3]
         bedrooms = random.choice([1,1,2,2,2,3,3,4])
         bathrooms = max(1, bedrooms - random.choice([0,1]))
         size = 45 + bedrooms*30 + random.randint(-10,25)
@@ -45,149 +62,95 @@ def load_data():
             "agent_name": random.choice(agents),
             "scraped_date": str(today - timedelta(days=random.randint(0,60))),
         })
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    df = df.merge(ESTATE_DF, on=["estate_name","county"], how="left")
+    return df
 
 df = load_data()
+avg_estate = df.groupby("estate_name").agg(avg_rent=("price_kes","mean"), listings=("price_kes","count")).reset_index().merge(ESTATE_DF, on="estate_name")
+avg_estate["avg_rent"] = avg_estate["avg_rent"].round(0).astype(int)
 
 # ---------- Header ----------
-st.title("🏠 Nairobi Rental Market Intelligence System")
-st.caption("By [Your Name] • GenData • Databases & SQL Track • MySQL + Excel + Tableau")
-st.markdown("**Problem:** Nairobi renters have no fair-rent benchmark. **Solution:** A MySQL database + advanced SQL + dashboard that finds the cheapest estate in 10 seconds.")
+centered("🏠 Nairobi Rental Market Intelligence System", 1)
+st.markdown("<p style='text-align: center; color: gray;'>By [Your Name] • GenData • Databases & SQL Track • MySQL + Tableau + Streamlit</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'><b>Problem:</b> Nairobi renters have no fair-rent benchmark. <b>Solution:</b> A MySQL database + advanced SQL + dashboard that finds the cheapest <i>and safest</i> estate in 10 seconds.</p>", unsafe_allow_html=True)
+st.divider()
 
-# ---------- Sidebar filters ----------
-st.sidebar.header("🔍 Filter Listings (Live Demo)")
+# ---------- Sidebar ----------
+st.sidebar.header("🔍 Filter Listings")
 bed = st.sidebar.slider("Bedrooms", 1, 4, 2)
 max_budget = st.sidebar.slider("Max budget (KSh)", 20000, 200000, 50000, step=5000)
+min_security = st.sidebar.slider("Minimum security rating (1-10)", 1, 10, 5)
 estate_filter = st.sidebar.multiselect("Estates", sorted(df.estate_name.unique()), default=sorted(df.estate_name.unique()))
-filtered = df[(df.bedrooms==bed) & (df.price_kes<=max_budget) & (df.estate_name.isin(estate_filter))].sort_values("price_kes")
+filtered = df[(df.bedrooms==bed) & (df.price_kes<=max_budget) & (df.security>=min_security) & (df.estate_name.isin(estate_filter))].sort_values("price_kes")
 st.sidebar.metric("Matching listings", len(filtered))
 if len(filtered):
     st.sidebar.metric("Cheapest", f"KSh {filtered.price_kes.min():,}")
-    st.sidebar.metric("Average", f"KSh {int(filtered.price_kes.mean()):,}")
+    st.sidebar.metric("Avg security", f"{filtered.security.mean():.1f}/10")
 
-# ---------- Tabs ----------
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["📋 Overview", "🗄️ Database & SQL", "📊 Excel Analysis", "📈 Dashboard", "💡 Insights"])
+tab1, tab2 = st.tabs(["📋 Overview", "📈 Dashboard"])
 
 with tab1:
-    st.subheader("What this project does")
+    centered("Project Overview", 2)
     c1,c2,c3,c4 = st.columns(4)
-    c1.metric("Total listings", len(df))
-    c2.metric("Estates", df.estate_name.nunique())
-    c3.metric("Avg rent", f"KSh {int(df.price_kes.mean()):,}")
-    c4.metric("Cheapest 2-bed", f"KSh {int(df[df.bedrooms==2].price_kes.min()):,}")
+    c1.metric("Total listings", len(df)); c2.metric("Estates", df.estate_name.nunique())
+    c3.metric("Avg rent", f"KSh {int(df.price_kes.mean()):,}"); c4.metric("Avg security", f"{df.security.mean():.1f}/10")
     st.markdown("""
     ### Pipeline
-    **Python Scraper (Property24) → MySQL Database → Advanced SQL → Excel PivotTable → Tableau Dashboard**
+    **Python Scraper (Property24) → MySQL Database → Advanced SQL → Tableau / Streamlit Dashboard**
 
     | Layer | Tool | Role |
     |---|---|---|
     | Collect | Python (requests, BeautifulSoup) | Scrape listings → CSV |
-    | Store | MySQL + Workbench | 3 tables, ERD, 3NF, indexes, views, procedures |
+    | Store | MySQL + Workbench | 4 tables (incl. amenities), ERD, 3NF, indexes |
     | Analyse | SQL | JOINs, GROUP BY, CASE, CTEs, Window Functions |
-    | Summarise | Excel | Power Query + PivotTable |
-    | Visualise | Tableau / This website | Interactive dashboard for renters & agents |
+    | Visualise | Tableau + This Streamlit website | Interactive dashboard with map |
 
-    **Business value:** Renters save KSh 10k–30k/month by choosing value estates. Agents price correctly and close faster.
+    **New in v2 (teacher feedback):** Added **security, schools, hospitals, transport, water** per estate + **Livability Score** + **map view**.
     """)
-    st.dataframe(df.head(10), use_container_width=True)
-    st.caption("Sample of the 120 listings loaded into MySQL (table: properties).")
+    st.dataframe(df[["title","estate_name","bedrooms","price_kes","schools","hospitals","security","livability"]].head(10), use_container_width=True)
 
 with tab2:
-    st.subheader("Database Design (Week 2) + SQL Live Results (Week 1)")
-    st.markdown("**ER Diagram — 3 tables, 3rd Normal Form:**")
-    st.code("""
-locations (location_id PK, estate_name UNIQUE, county, latitude, longitude)
-    ↑ 1:N
-properties (property_id PK, title, location_id FK, agent_id FK,
-            property_type, bedrooms, bathrooms, size_sqm,
-            price_kes, price_per_sqm, listing_url, scraped_date)
-    ↓ N:1
-agents (agent_id PK, agent_name UNIQUE, phone)
+    centered("Dashboard — Rent, Safety & Amenities", 2)
+    st.markdown("<p style='text-align: center; color: gray;'>All graphs have centered titles and labeled axes • Use the sidebar to filter live</p>", unsafe_allow_html=True)
 
-Objects: VIEW v_cheap_2bed • PROCEDURE sp_avg_rent_by_bedrooms()
-         TRIGGER trg_price_per_sqm • INDEX idx_price, idx_location, idx_bedrooms
-""", language="sql")
-    st.markdown("### Q2 — GROUP BY + CASE: Average rent per estate (run live below)")
-    st.code("""
-SELECT l.estate_name, COUNT(*) AS listings,
-       ROUND(AVG(p.price_kes),0) AS avg_rent,
-       CASE WHEN AVG(p.price_kes)<40000 THEN 'Affordable'
-            WHEN AVG(p.price_kes)<70000 THEN 'Mid-range'
-            ELSE 'Premium' END AS category
-FROM properties p JOIN locations l ON p.location_id=l.location_id
-GROUP BY l.estate_name ORDER BY avg_rent ASC;
-""", language="sql")
-    q2 = df.groupby("estate_name").agg(listings=("price_kes","count"), avg_rent=("price_kes","mean")).reset_index().sort_values("avg_rent")
-    q2["avg_rent"] = q2["avg_rent"].round(0).astype(int)
-    q2["category"] = q2["avg_rent"].apply(lambda x: "Affordable" if x<40000 else "Mid-range" if x<70000 else "Premium")
-    st.dataframe(q2, use_container_width=True, hide_index=True)
+    # GRAPH 1
+    centered("Graph 1: Average Rent by Estate (KSh)", 3)
+    fig1 = px.bar(avg_estate.sort_values("avg_rent"), x="estate_name", y="avg_rent", color="avg_rent", color_continuous_scale="RdYlGn_r",
+                  labels={"estate_name":"Estate","avg_rent":"Average Rent (KSh)"}, title="Average Rent by Estate")
+    fig1.update_layout(title_x=0.5, xaxis_title="Estate", yaxis_title="Average Rent (KSh)", xaxis_tickangle=-30)
+    st.plotly_chart(fig1, use_container_width=True)
 
-    st.markdown("### Q4 — CTE + Window Function: Top 3 cheapest 2-beds per estate")
-    st.code("""
-WITH ranked AS (
-  SELECT p.*, l.estate_name,
-         ROW_NUMBER() OVER (PARTITION BY p.location_id
-                            ORDER BY p.price_kes ASC) AS rn
-  FROM properties p JOIN locations l ON p.location_id=l.location_id
-  WHERE p.bedrooms=2)
-SELECT estate_name, title, price_kes, rn FROM ranked WHERE rn<=3;
-""", language="sql")
-    two_bed = df[df.bedrooms==2].sort_values(["estate_name","price_kes"])
-    two_bed = two_bed.copy(); two_bed["rn"] = two_bed.groupby("estate_name").cumcount()+1
-    st.dataframe(two_bed[two_bed.rn<=3][["estate_name","title","price_kes","rn"]], use_container_width=True, hide_index=True)
+    # GRAPH 2
+    centered("Graph 2: Rent vs Livability Score (Price vs Amenities)", 3)
+    fig2 = px.scatter(avg_estate, x="livability", y="avg_rent", text="estate_name", color="security", color_continuous_scale="Viridis",
+                      labels={"livability":"Livability Score (schools+hospitals+security+transport)","avg_rent":"Average Rent (KSh)","security":"Security (1-10)"},
+                      title="Rent vs Livability — Top-left = cheap + livable (best value)")
+    fig2.update_layout(title_x=0.5, xaxis_title="Livability Score", yaxis_title="Average Rent (KSh)")
+    st.plotly_chart(fig2, use_container_width=True)
 
-    st.markdown("### Q5 — RANK(): Best value per m²")
-    st.code("SELECT estate_name, title, price_per_sqm, RANK() OVER (ORDER BY price_per_sqm ASC) AS value_rank FROM properties ... ORDER BY price_per_sqm ASC LIMIT 15;", language="sql")
-    best = df.sort_values("price_per_sqm").head(15).copy()
-    best["value_rank"] = range(1, len(best)+1)
-    st.dataframe(best[["estate_name","title","price_kes","size_sqm","price_per_sqm","value_rank"]], use_container_width=True, hide_index=True)
+    # GRAPH 3 
+    centered("Graph 3: Security Rating by Estate (1-10)", 3)
+    fig3 = px.bar(avg_estate.sort_values("security"), x="estate_name", y="security", color="security", color_continuous_scale="Blues",
+                  labels={"estate_name":"Estate","security":"Security Rating (1-10)"}, title="Security Rating by Estate — Higher = Safer")
+    fig3.update_layout(title_x=0.5, xaxis_title="Estate", yaxis_title="Security Rating (1-10)", xaxis_tickangle=-30)
+    st.plotly_chart(fig3, use_container_width=True)
 
-with tab3:
-    st.subheader("Excel Analysis (Week 3) — PivotTable equivalent")
-    st.markdown("In Excel: **Data → From Text/CSV** → **Insert → PivotTable** (Rows=Estate, Columns=Bedrooms, Values=Average of Price) + Conditional Formatting.")
-    pivot = df.pivot_table(index="estate_name", columns="bedrooms", values="price_kes", aggfunc="mean").round(0)
-    st.dataframe(pivot, use_container_width=True)
-    st.caption("Green = cheapest, Red = most expensive (in Excel, via Conditional Formatting → Color Scales).")
-    st.markdown("**Insight:** 1-bed in Kahawa West ≈ KSh 20k vs 3-bed in Lavington ≈ KSh 160k — 8× difference in the same city.")
+    # MAP
+    centered("Map: Estates in Nairobi — Location & Average Rent", 3)
+    st.markdown("<p style='text-align: center; color: gray;'>Pin size = number of listings • Hover for details • Westlands & Lavington = premium & safest • Ruaka & Kahawa West = cheapest</p>", unsafe_allow_html=True)
+    map_df = avg_estate.rename(columns={"lat":"lat","lon":"lon"})
+    st.map(map_df[["lat","lon"]])
+    st.dataframe(avg_estate[["estate_name","county","avg_rent","schools","hospitals","security","livability","lat","lon"]].sort_values("avg_rent"), use_container_width=True, hide_index=True)
 
-with tab4:
-    st.subheader("Dashboard (Week 4 — Tableau equivalent, live)")
-    st.markdown("### Average rent by estate")
-    avg_estate = df.groupby("estate_name")["price_kes"].mean().sort_values()
-    st.bar_chart(avg_estate)
-    st.markdown("### Your filtered results (use sidebar ←)")
+    centered("Your Filtered Results (Sidebar)", 3)
     if len(filtered):
-        st.dataframe(filtered[["title","estate_name","bedrooms","size_sqm","price_kes","price_per_sqm"]], use_container_width=True, hide_index=True)
-        st.success(f"✅ {len(filtered)} listings match: {bed} bed, under KSh {max_budget:,}. Cheapest: {filtered.iloc[0]['title']} — KSh {filtered.iloc[0]['price_kes']:,}")
+        st.dataframe(filtered[["title","estate_name","bedrooms","price_kes","schools","hospitals","security","livability"]], use_container_width=True, hide_index=True)
+        st.success(f"✅ {len(filtered)} listings match: {bed} bed, under KSh {max_budget:,}, security ≥ {min_security}/10. Cheapest: {filtered.iloc[0]['title']} — KSh {filtered.iloc[0]['price_kes']:,}")
     else:
-        st.warning("No listings match — increase your budget or select more estates.")
-    st.markdown("### Rent by bedrooms")
-    st.bar_chart(df.groupby("bedrooms")["price_kes"].mean())
-
-with tab5:
-    st.subheader("Insights & Business Value")
-    st.markdown("""
-    ### 💡 Aha! moments
-    - **Ruaka 2-bed ≈ KSh 38k vs Kilimani ≈ KSh 85k** for the same size — KSh 564k/year difference
-    - **Kahawa West** is the cheapest estate overall
-    - **Price per m²** reveals true value better than headline price
-    - **Fair-price flag:** 20%+ below area median = deal
-
-    ### 💰 Who benefits?
-    - **Renters:** save KSh 10k–30k/month, search in days not weeks
-    - **Agents:** price correctly, close faster, fewer negotiations
-    - **Landlords/developers:** know where demand is highest
-    - **County/policy:** evidence on housing affordability by ward
-
-    ### 🚀 Future work
-    - Docker + GitHub Actions daily refresh (like the EIA pipeline example)
-    - Rent forecasting with time-series
-    - Map view using latitude/longitude
-    - Alerts when a below-market 'deal' listing appears
-
-    ### 🎤 Presentation tip
-    Use the sidebar filters live: set Bedrooms=2, Budget=KSh 50,000 → show the cheapest estates instantly. Then switch to MySQL Workbench and run Q2/Q4 with the ⚡ button.
-    """)
+        st.warning("No listings match — increase budget or lower security filter.")
 
 st.divider()
-st.caption("Developed by [Your Name] • GenData Project • Nairobi Rental Market Intelligence System • Python → MySQL → SQL → Excel → Tableau")
+st.markdown("<p style='text-align: center; color: gray;'>💡 Database & SQL + Insights are in the PowerPoint presentation — this website focuses on Overview and the live Dashboard.</p>", unsafe_allow_html=True)
+st.divider()
+st.markdown("<p style='text-align: center; color: gray;'>Developed by Denis • GenData Project • Nairobi Rental Market Intelligence System • Python → MySQL → SQL → Tableau / Streamlit</p>", unsafe_allow_html=True)

@@ -7,12 +7,9 @@
   1. Tries to scrape Property24 Kenya for Nairobi apartment listings
   2. If scraping is blocked (common), it AUTOMATICALLY creates a
      realistic sample dataset so your project NEVER fails tomorrow
-  3. Saves everything to listings.csvpip
+  3. Saves everything to listings.csv
   4. Loads the CSV into MySQL (if MySQL is set up)
 
- HOW TO RUN (see STEP-BY-STEP guide for where to click):
-  - Double-click run_scraper.bat  OR
-  - In VS Code: press Ctrl + ` then type:  python 01_scraper.py  then press Enter
 
  REQUIREMENTS:
   pip install requests beautifulsoup4 pandas mysql-connector-python
